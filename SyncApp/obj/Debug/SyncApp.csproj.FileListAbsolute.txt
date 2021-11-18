@@ -1,0 +1,7 @@
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\bin\Debug\SyncApp.dll.config
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\bin\Debug\SyncApp.dll
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\bin\Debug\SyncApp.pdb
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\obj\Debug\SyncApp.csproj.AssemblyReference.cache
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\obj\Debug\SyncApp.csproj.CoreCompileInputs.cache
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\obj\Debug\SyncApp.dll
+C:\Users\RobertD\source\repos\SyncApp\SyncApp\obj\Debug\SyncApp.pdb
