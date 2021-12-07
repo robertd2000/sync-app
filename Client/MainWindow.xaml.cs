@@ -24,12 +24,13 @@ namespace Client
         bool isConnected = false;
         Service1Client client;
         int ID;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        void ConnectUser()
+        private void ConnectUser()
         {
             if (!isConnected)
             {
@@ -47,20 +48,25 @@ namespace Client
         /// <summary>
         /// 
         /// </summary>
-        void Msg()
-        { 
-            var ran = new Random();
+        private void Msg()
+        {
+            Random ran = new Random();
             string msg;
-            msg = ran.Next().ToString();
+            int id = ID;
+            msg = ran.Next(1, 100).ToString();
+
+            string formattedMsg = " с id " + ID.ToString() + " " + msg;
+
+            popup.IsOpen = Convert.ToInt32(msg) > 50 && Convert.ToInt32(msg) < 70 && id == ID;
 
             if (client != null)
             {
-                client.SendMsg(msg, ID);
-            } 
-            
+                client.SendMsg(formattedMsg, ID);
             }
 
-            void DisconnectUser()
+        }
+
+        private void DisconnectUser()
         {
             if (isConnected)
             {
@@ -85,19 +91,15 @@ namespace Client
             int i = 0;
             while (isConnected)
             {
-                await Task.Delay(5000);
+                await Task.Delay(10000);
                 i++;
                 Msg();
-                if (i == 5)
-                {
-                    break;
-                }
             }
         }
 
         public void MessageCallback(string msg)
         {
-            lbMessages.Items.Add(msg);
+            _ = lbMessages.Items.Add(msg);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -112,6 +114,26 @@ namespace Client
         private void lbMessages_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (client != null)
+            {
+                client.SendMsg("Режим A активирован", ID);
+            }
+
+            popup.IsOpen = false;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (client != null)
+            {
+                client.SendMsg("Отказ оператора в активации режима А", ID);
+            }
+
+            popup.IsOpen = false;
         }
     }
 }
