@@ -46,21 +46,26 @@ namespace Client
         }
 
         /// <summary>
-        /// 
+        /// Метод для отправки форматированного сообщения на сервер
         /// </summary>
         private void Msg()
         {
+            //Инициализация переменных
             Random ran = new Random();
             string msg;
             int id = ID;
+
+            //Временные данные
             msg = ran.Next(1, 100).ToString();
 
             string formattedMsg = " с id " + ID.ToString() + " " + msg;
 
+            //Временное условие для открытия окна подтверждения
             popup.IsOpen = Convert.ToInt32(msg) > 50 && Convert.ToInt32(msg) < 70 && id == ID;
 
             if (client != null)
             {
+                //Отправка сообщения на сервер
                 client.SendMsg(formattedMsg, ID);
             }
 
@@ -91,6 +96,7 @@ namespace Client
             int i = 0;
             while (isConnected)
             {
+                //Временное решение для постоянного обновления данных на сервере
                 await Task.Delay(10000);
                 i++;
                 Msg();

@@ -10,13 +10,12 @@
         <ListBox x:Name="lbMessages" HorizontalAlignment="Left" Height="302" Margin="10,73,0,0" VerticalAlignment="Top" Width="772" Loaded="lbMessages_Loaded"/>
         <Button x:Name="bConnect" Click="Button_Click" Content="Подключиться" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="46"/>
         <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="46" Margin="196,10,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="586"/>
-        <Popup x:Name="popup" IsOpen="False" >
+        <Popup x:Name="popup" IsOpen="False" PopupAnimation="Fade" >
             
-
                 <Border BorderThickness="1">
                 <StackPanel>
                     <TextBlock Name="myPopupText" Background="LightBlue" Foreground="Blue" Padding="30">
-                Popup Text
+                Активировать режим А?
                 </TextBlock>
                     <Button Click="Button_Click_1">Да</Button>
                     <Button Click="Button_Click_2">Нет</Button>
